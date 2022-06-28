@@ -35,14 +35,14 @@ class GoPOSViewModel @Inject constructor(
     }
 
     fun getTokenFromServer(login: String, password : String) {
-        sharedPreferencesManager.removeAll()
         runBlocking {
-            errorCollector.postValue(null)
+            sharedPreferencesManager.removeAll()
             val response = repository.getTokenFromServer(login, password)
             when (response) {
                 is Resource.Success -> {
                     sharedPreferencesManager.saveRefreshToken(response.data!!.refresh_token!!)
                     sharedPreferencesManager.saveAuthToken(response.data.access_token!!)
+                    errorCollector.postValue("")
                 }
 
                 is Resource.Error -> errorCollector.postValue(
@@ -99,5 +99,9 @@ class GoPOSViewModel @Inject constructor(
     }
     fun getError() : LiveData<String?> {
         return errorCollector
+    }
+
+    fun clearErrorCollector(){
+        errorCollector.value = null
     }
 }

@@ -23,17 +23,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setUpClickListeners() {
-        val login = binding.login.text.toString()
-        val password = binding.password.text.toString()
         binding.loginButton.setOnClickListener {
+            val login = binding.login.text.toString()
+            val password = binding.password.text.toString()
             viewModel.getTokenFromServer(login,password)
-            viewModel.getError().observe(this){
-                if(it.isNullOrEmpty()){
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(intent)
-                }else{
-                    Toast.makeText(this,it, Toast.LENGTH_SHORT).show()
+            viewModel.getError().observe(this){error ->
+                if (error != null) {
+                    if(error.isEmpty()){
+                        Toast.makeText(this,"Zalogowano!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(this,error, Toast.LENGTH_SHORT).show()
+                        viewModel.clearErrorCollector()
+                    }
                 }
             }
 

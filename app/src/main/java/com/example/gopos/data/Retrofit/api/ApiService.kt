@@ -19,6 +19,6 @@ interface ApiService {
         "accept: application/json"
     )
     @GET("/api/v3/27/items")
-    suspend fun getItems(@Query("include") include : String) : ApiResponse
+    suspend fun getItems(@Query("include") include : String ) : ApiResponse
 
 }

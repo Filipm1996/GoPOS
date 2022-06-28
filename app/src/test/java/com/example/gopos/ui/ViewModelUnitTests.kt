@@ -67,13 +67,13 @@ class ViewModelUnitTests {
     }
 
     @Test
-    fun `get success from server save tokens`() = runBlocking {
+    fun `get success response from server save tokens`() = runBlocking {
         val tokenResponse = TokenResponse("access_token",1,"refresh_token","scope","token_type")
         val successResponse = Resource.Success(tokenResponse)
         coEvery { repository.getTokenFromServer(any(),any()) } returns successResponse
         viewModel.getTokenFromServer("login", "password")
         val error = viewModel.getError().getOrAwaitValue()
-        assertThat(error == null).isTrue()
+        assertThat(error == "").isTrue()
         assertThat(sharedPreferencesManager.getAuthToken() == "access_token" ).isTrue()
         assertThat(sharedPreferencesManager.getRefreshToken() == "refresh_token" ).isTrue()
     }
@@ -87,5 +87,15 @@ class ViewModelUnitTests {
         assertThat(error == "error").isTrue()
     }
 
-
+    @Test
+    fun `errorCollector returns null after clearErrorCollector`(){
+        val errorResponse = Resource.Error("error",ApiResponse(null))
+        coEvery { repository.getItemsFromAPI(any()) } returns  errorResponse
+        viewModel.getItemsFromAPIandSave()
+        val error = viewModel.getError().getOrAwaitValue()
+        assertThat(error == "error").isTrue()
+        viewModel.clearErrorCollector()
+        val errorNull = viewModel.getError().getOrAwaitValue()
+        assertThat(errorNull == null).isTrue()
+    }
 }

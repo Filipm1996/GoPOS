@@ -50,7 +50,7 @@ class TokenAuthenticator @Inject constructor (private val refreshTokenApi: Refre
             val response = refreshTokenApi.refreshToken(refreshToken,Constants.clientSecret,Constants.clientId)
             response
         } catch (e: Exception){
-            Resource.Error(e.message.toString())
+            Resource.Error(e.message ?: "error")
         }
     }
 

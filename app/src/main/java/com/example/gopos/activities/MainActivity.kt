@@ -35,7 +35,10 @@ class MainActivity : AppCompatActivity() {
     private fun setUpViewModel() {
         viewModel.getItemsFromAPIandSave()
         viewModel.getError().observe(this){
-            Toast.makeText(this,it,Toast.LENGTH_LONG).show()
+            if(!it.isNullOrEmpty()) {
+                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+                viewModel.clearErrorCollector()
+            }
         }
     }
 

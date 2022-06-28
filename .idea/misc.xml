@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.236" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font-v26/sketch.xml" value="0.2598958333333333" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font-v26/sketch_font.xml" value="0.215625" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font/sketch.xml" value="0.3055555555555556" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font/sketch_font.xml" value="0.215625" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/activity_login.xml" value="0.1875" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/login_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/recycler_view_content.xml" value="0.33" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/recycler_view_content_without_photo.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/drawable/custom_progressbar.xml" value="0.34" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.236" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font-v26/sketch.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font-v26/sketch_font.xml" value="0.215625" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font/sketch.xml" value="0.3055555555555556" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/font/sketch_font.xml" value="0.215625" />
-        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/activity_login.xml" value="0.1875" />
+        <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/login_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Filip/Desktop/dev files/Android projects/GoPOS/app/src/main/res/layout/recycler_view_content.xml" value="0.33" />

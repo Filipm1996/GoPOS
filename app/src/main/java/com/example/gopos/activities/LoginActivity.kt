@@ -3,6 +3,7 @@ package com.example.gopos.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.gopos.databinding.ActivityLoginBinding
@@ -18,8 +19,23 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        setUpProgressBar()
         setUpClickListeners()
         setContentView(binding.root)
+    }
+
+    private fun setUpProgressBar() {
+        viewModel.getLoadingLiveData().observe(this){
+            if(it == true){
+                binding.progressBar.visibility = View.VISIBLE
+                binding.password.visibility = View.INVISIBLE
+                binding.login.visibility = View.INVISIBLE
+            }else{
+                binding.progressBar.visibility = View.INVISIBLE
+                binding.password.visibility = View.VISIBLE
+                binding.login.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun setUpClickListeners() {

@@ -24,7 +24,7 @@ class GoPOSViewModel @Inject constructor(
 ) : ViewModel() {
     private val mutableItemLiveData = MutableLiveData<List<Item>>()
     private val errorCollector = MutableLiveData<String?>()
-
+    private val loadingLiveData = MutableLiveData<Boolean>()
     init {
         clearDb()
     }
@@ -34,6 +34,7 @@ class GoPOSViewModel @Inject constructor(
     }
 
     fun getTokenFromServer(login: String, password : String) {
+        loadingLiveData.postValue(true)
         CoroutineScope(Dispatchers.IO).launch {
             sharedPreferencesManager.removeAll()
             val response = repository.getTokenFromServer(login, password)
@@ -42,11 +43,15 @@ class GoPOSViewModel @Inject constructor(
                     sharedPreferencesManager.saveRefreshToken(response.data!!.refresh_token!!)
                     sharedPreferencesManager.saveAuthToken(response.data.access_token!!)
                     errorCollector.postValue("")
+                    loadingLiveData.postValue(false)
                 }
 
-                is Resource.Error -> errorCollector.postValue(
-                    response.message ?: "An unexpected error occured"
-                )
+                is Resource.Error -> {
+                    loadingLiveData.postValue(false)
+                    errorCollector.postValue(
+                        response.message ?: "An unexpected error occured"
+                    )
+                }
             }
         }
     }
@@ -98,6 +103,10 @@ class GoPOSViewModel @Inject constructor(
     }
     fun getError() : LiveData<String?> {
         return errorCollector
+    }
+
+    fun getLoadingLiveData() : LiveData<Boolean>{
+        return loadingLiveData
     }
 
     fun clearErrorCollector(){

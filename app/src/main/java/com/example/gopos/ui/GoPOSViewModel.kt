@@ -14,7 +14,6 @@ import io.objectbox.Box
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,7 +34,7 @@ class GoPOSViewModel @Inject constructor(
     }
 
     fun getTokenFromServer(login: String, password : String) {
-        runBlocking {
+        CoroutineScope(Dispatchers.IO).launch {
             sharedPreferencesManager.removeAll()
             val response = repository.getTokenFromServer(login, password)
             when (response) {
